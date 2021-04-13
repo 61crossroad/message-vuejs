@@ -35,11 +35,14 @@
         import MessageList from './components/MessageList.js';
         import './directives/focus.directive.js';
         import './filters/datetime.filter.js';
-        import lifecycleLogger from './mixins/lifecycle-logger.mixin.js';
+        // import lifecycleLogger from './mixins/lifecycle-logger.mixin.js';
+        import lifecycleLogger from './plugins/lifecycle-logger.plugin.js';
+
+        Vue.use(lifecycleLogger, {beforeMount: false});
         
         let vm = new Vue({
             name: 'MessageApp',
-            mixins: [lifecycleLogger],
+            // mixins: [lifecycleLogger],
             el: '#app',
             data: {
                 messages: [],
